@@ -4,7 +4,7 @@
 //
 //  Created by Frank Wolff on 01/11/2017.
 //  Copyright © 2017 Frank Wolff. All rights reserved.
-//
+//  Next page to do: https://www.hackingwithswift.com/read/1/5/loading-images-with-uiimage
 
 import UIKit
 
