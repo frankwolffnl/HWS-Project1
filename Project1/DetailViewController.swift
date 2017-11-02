@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 		navigationItem.largeTitleDisplayMode = .never
 		title = selectedImage
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
 		
 		if let imageToLoad = selectedImage {
 			imageView.image = UIImage(named: imageToLoad)
@@ -31,6 +32,12 @@ class DetailViewController: UIViewController {
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		navigationController?.hidesBarsOnTap = false
+	}
+	
+	@objc func shareTapped() {
+		let vc = UIActivityViewController(activityItems: [imageView.image!], applicationActivities: [])
+		vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+		present(vc, animated: true)
 	}
 	
 	override func prefersHomeIndicatorAutoHidden() -> Bool {
